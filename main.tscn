@@ -1,0 +1,205 @@
+[gd_scene load_steps=25 format=3 uid="uid://bq7ddrxjtssgx"]
+
+[ext_resource type="Texture2D" uid="uid://bf8o4ccwuc1db" path="res://assets/Background/bg_layer1.png" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://oev0vmxvdww7" path="res://main.gd" id="1_kek77"]
+[ext_resource type="Script" uid="uid://qtayswper1fu" path="res://background.gd" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dfl1yyk7bsbyp" path="res://assets/Background/bg_layer2.png" id="2_lquwl"]
+[ext_resource type="Texture2D" uid="uid://byad4jy6w4b23" path="res://assets/Background/bg_layer3.png" id="3_7mycd"]
+[ext_resource type="Texture2D" uid="uid://dy0763exvsicm" path="res://assets/Background/bg_layer4.png" id="4_272bh"]
+[ext_resource type="Script" uid="uid://ct2bxdkgsk6aw" path="res://spawner.gd" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b23e6scjesh2v" path="res://player.tscn" id="7_272bh"]
+[ext_resource type="Script" uid="uid://d23lgak0iynyj" path="res://play_again_button.gd" id="8_5vw27"]
+[ext_resource type="FontFile" uid="uid://cwsfa5wh1y81i" path="res://assets/Kenney Bold.ttf" id="9_cegan"]
+[ext_resource type="Script" uid="uid://bjji8tm4cgh4i" path="res://score_label.gd" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://ce4m072605u2h" path="res://best_score_label.gd" id="11_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://bit1btjh3xix4" path="res://Audio/jump5.ogg" id="11_efxa6"]
+[ext_resource type="AudioStream" uid="uid://c5cjlfqmowp4i" path="res://Audio/gameover3.ogg" id="12_dg77c"]
+[ext_resource type="AudioStream" uid="uid://dmbgd25g4n6ai" path="res://Audio/fall1.ogg" id="13_w48qg"]
+[ext_resource type="AudioStream" uid="uid://b8xs6eipc73vh" path="res://Audio/hurt3.ogg" id="14_vivmo"]
+[ext_resource type="AudioStream" uid="uid://cxb81idnxfax5" path="res://Audio/8. Summertide Fun.wav" id="15_vivmo"]
+[ext_resource type="AudioStream" uid="uid://bjjmo1jr88j47" path="res://Audio/coin4.ogg" id="17_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bgcijyaigfovk" path="res://instructions.tscn" id="18_074og"]
+[ext_resource type="AudioStream" uid="uid://352tk28fbimw" path="res://Audio/powerUp2.ogg" id="19_82xsv"]
+[ext_resource type="AudioStream" uid="uid://cxxtas478wr62" path="res://Audio/jingles_PIZZA16.ogg" id="20_getpj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.302664, 0.739256, 0.518661, 1)
+border_width_bottom = 4
+border_color = Color(0.187353, 0.490986, 0.33822, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(2.15, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.286275, 0.705882, 0.494118, 1)
+border_width_top = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(2.15, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
+bg_color = Color(0.286275, 0.705882, 0.494118, 1)
+border_width_bottom = 4
+border_color = Color(0.187353, 0.490986, 0.33822, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(2.15, 3.405)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kek77")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(512, 256)
+scale = Vector2(0.52, 0.52)
+script = ExtResource("1_lquwl")
+metadata/_edit_lock_ = true
+
+[node name="Layer1" type="Node2D" parent="Background"]
+
+[node name="BgLayer1" type="Sprite2D" parent="Background/Layer1"]
+texture = ExtResource("1_1bvp3")
+
+[node name="BgLayer2" type="Sprite2D" parent="Background/Layer1"]
+position = Vector2(2048, 0)
+texture = ExtResource("1_1bvp3")
+
+[node name="Layer2" type="Node2D" parent="Background"]
+
+[node name="BgLayer2" type="Sprite2D" parent="Background/Layer2"]
+texture = ExtResource("2_lquwl")
+
+[node name="BgLayer3" type="Sprite2D" parent="Background/Layer2"]
+position = Vector2(2048, 0)
+texture = ExtResource("2_lquwl")
+
+[node name="Layer3" type="Node2D" parent="Background"]
+
+[node name="BgLayer3" type="Sprite2D" parent="Background/Layer3"]
+texture = ExtResource("3_7mycd")
+
+[node name="BgLayer4" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(2048, 0)
+texture = ExtResource("3_7mycd")
+
+[node name="Layer4" type="Node2D" parent="Background"]
+
+[node name="BgLayer4" type="Sprite2D" parent="Background/Layer4"]
+texture = ExtResource("4_272bh")
+
+[node name="BgLayer5" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(2048, 0)
+texture = ExtResource("4_272bh")
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(1152, 256)
+script = ExtResource("6_5vw27")
+
+[node name="Player" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(192, 256)
+floor_max_angle = 0.0
+platform_floor_layers = 4294967041
+platform_wall_layers = 1
+
+[node name="PlayAgainButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 376.0
+offset_top = 212.0
+offset_right = 648.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("9_cegan")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_272bh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5vw27")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kek77")
+text = "play again"
+script = ExtResource("8_5vw27")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 424.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 225.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("9_cegan")
+theme_override_font_sizes/font_size = 65
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("10_4c57u")
+
+[node name="BestScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 400.0
+offset_top = 344.0
+offset_right = 624.0
+offset_bottom = 503.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("9_cegan")
+theme_override_font_sizes/font_size = 45
+text = "high score
+0"
+horizontal_alignment = 1
+vertical_alignment = 2
+justification_flags = 131
+script = ExtResource("11_2cqfq")
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("11_efxa6")
+volume_db = -10.0
+
+[node name="GameOverAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("12_dg77c")
+
+[node name="FallAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("13_w48qg")
+
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_vivmo")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("15_vivmo")
+volume_db = -6.0
+autoplay = true
+
+[node name="CollectItem" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("17_yaehf")
+
+[node name="PointAwarded" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("19_82xsv")
+volume_db = 10.0
+
+[node name="10thPoint" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("20_getpj")
+
+[node name="Instructions" parent="." instance=ExtResource("18_074og")]
+position = Vector2(512, 192)
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgc0i1ckxqrw4"]
+
+[ext_resource type="Texture2D" uid="uid://jik0qe24olif" path="res://assets/Tiles/tileBrown_04.png" id="1_c1gob"]
+[ext_resource type="Script" uid="uid://72wojx5mm3a7" path="res://obstacle.gd" id="1_p60oa"]
+[ext_resource type="Texture2D" uid="uid://ddvmso476ssev" path="res://assets/Tiles/tileBrown_09.png" id="2_jcbfx"]
+[ext_resource type="Texture2D" uid="uid://cotlhapygebg5" path="res://assets/Tiles/tileBrown_27.png" id="3_p60oa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnddi"]
+size = Vector2(54, 321.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p60oa"]
+size = Vector2(20, 191)
+
+[node name="Obstacle1" type="Node2D" groups=["Killzone"]]
+script = ExtResource("1_p60oa")
+move_speed = 110
+
+[node name="Bottom Rock" type="StaticBody2D" parent="." groups=["Killzone"]]
+position = Vector2(0, 64)
+
+[node name="TileBrown04" type="Sprite2D" parent="Bottom Rock"]
+texture = ExtResource("1_c1gob")
+
+[node name="TileBrown09" type="Sprite2D" parent="Bottom Rock"]
+position = Vector2(0, 64)
+texture = ExtResource("2_jcbfx")
+
+[node name="TileBrown27" type="Sprite2D" parent="Bottom Rock"]
+position = Vector2(0, 128)
+texture = ExtResource("3_p60oa")
+
+[node name="TileBrown28" type="Sprite2D" parent="Bottom Rock"]
+position = Vector2(0, 192)
+texture = ExtResource("3_p60oa")
+
+[node name="TileBrown29" type="Sprite2D" parent="Bottom Rock"]
+position = Vector2(0, 328)
+scale = Vector2(1, 3.375)
+texture = ExtResource("3_p60oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Rock"]
+position = Vector2(0, 127.75)
+shape = SubResource("RectangleShape2D_dnddi")
+
+[node name="Top Rock" type="StaticBody2D" parent="." groups=["Killzone"]]
+position = Vector2(0, -128)
+rotation = 3.14159
+
+[node name="TileBrown04" type="Sprite2D" parent="Top Rock"]
+texture = ExtResource("1_c1gob")
+
+[node name="TileBrown09" type="Sprite2D" parent="Top Rock"]
+position = Vector2(0, 64)
+texture = ExtResource("2_jcbfx")
+
+[node name="TileBrown27" type="Sprite2D" parent="Top Rock"]
+position = Vector2(0, 128)
+texture = ExtResource("3_p60oa")
+
+[node name="TileBrown28" type="Sprite2D" parent="Top Rock"]
+position = Vector2(0, 192)
+texture = ExtResource("3_p60oa")
+
+[node name="TileBrown29" type="Sprite2D" parent="Top Rock"]
+position = Vector2(-0.000872103, 344)
+scale = Vector2(1, 3.84375)
+texture = ExtResource("3_p60oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Rock"]
+position = Vector2(-0.000324547, 128)
+shape = SubResource("RectangleShape2D_dnddi")
+
+[node name="ScoreZone" type="Area2D" parent="." groups=["ScoreZone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreZone" groups=["ScoreZone"]]
+position = Vector2(27, -31.5)
+shape = SubResource("RectangleShape2D_p60oa")

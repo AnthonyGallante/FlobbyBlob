@@ -1,0 +1,120 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvgof1qwba66l"]
+
+[ext_resource type="Texture2D" uid="uid://bye4rqoxiaw4h" path="res://assets/Puzzles/keyGreen.png" id="1_5wdmw"]
+[ext_resource type="Script" uid="uid://bi5mwlvbc7r7l" path="res://key.gd" id="1_fqr0k"]
+[ext_resource type="Script" uid="uid://72wojx5mm3a7" path="res://obstacle.gd" id="1_oxblb"]
+[ext_resource type="Texture2D" uid="uid://by50kwrsufwal" path="res://assets/Puzzles/lockGreenTop.png" id="2_fhtyd"]
+[ext_resource type="Texture2D" uid="uid://dm3a1tyo54ctl" path="res://assets/Puzzles/lockGreenBottom.png" id="2_sq110"]
+[ext_resource type="Texture2D" uid="uid://jik0qe24olif" path="res://assets/Tiles/tileBrown_04.png" id="4_brw43"]
+[ext_resource type="Texture2D" uid="uid://b56drqej25b7l" path="res://assets/Puzzles/lockGreenLock.png" id="4_spau0"]
+[ext_resource type="Texture2D" uid="uid://ddvmso476ssev" path="res://assets/Tiles/tileBrown_09.png" id="5_spau0"]
+[ext_resource type="Texture2D" uid="uid://cotlhapygebg5" path="res://assets/Tiles/tileBrown_27.png" id="6_fqr0k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wdmw"]
+radius = 12.0208
+height = 41.0122
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spau0"]
+size = Vector2(54, 219.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxblb"]
+size = Vector2(54, 321.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llivm"]
+size = Vector2(20, 191)
+
+[node name="Obstacle_2" type="Node2D"]
+script = ExtResource("1_oxblb")
+move_speed = 110
+
+[node name="Key" type="StaticBody2D" parent="." groups=["Item"]]
+script = ExtResource("1_fqr0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Key"]
+texture_filter = 5
+texture = ExtResource("1_5wdmw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_5wdmw")
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="Lock" type="StaticBody2D" parent="Wall" groups=["Killzone"]]
+
+[node name="LockGreenTop" type="Sprite2D" parent="Wall/Lock"]
+position = Vector2(198, -64)
+texture = ExtResource("2_fhtyd")
+
+[node name="LockGreenBottom" type="Sprite2D" parent="Wall/Lock"]
+position = Vector2(198, 64)
+texture = ExtResource("2_sq110")
+
+[node name="LockGreenLock" type="Sprite2D" parent="Wall/Lock"]
+position = Vector2(198, 0)
+texture = ExtResource("4_spau0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Lock" groups=["Killzone"]]
+position = Vector2(179, 1)
+shape = SubResource("RectangleShape2D_spau0")
+
+[node name="Bottom Rock" type="StaticBody2D" parent="Wall" groups=["Killzone"]]
+position = Vector2(198, 128)
+
+[node name="TileBrown04" type="Sprite2D" parent="Wall/Bottom Rock"]
+texture = ExtResource("4_brw43")
+
+[node name="TileBrown09" type="Sprite2D" parent="Wall/Bottom Rock"]
+position = Vector2(0, 64)
+texture = ExtResource("5_spau0")
+
+[node name="TileBrown27" type="Sprite2D" parent="Wall/Bottom Rock"]
+position = Vector2(0, 128)
+texture = ExtResource("6_fqr0k")
+
+[node name="TileBrown28" type="Sprite2D" parent="Wall/Bottom Rock"]
+position = Vector2(0, 192)
+texture = ExtResource("6_fqr0k")
+
+[node name="TileBrown29" type="Sprite2D" parent="Wall/Bottom Rock"]
+position = Vector2(0, 328)
+scale = Vector2(1, 3.375)
+texture = ExtResource("6_fqr0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Bottom Rock"]
+position = Vector2(0, 127.75)
+shape = SubResource("RectangleShape2D_oxblb")
+
+[node name="Top Rock" type="StaticBody2D" parent="Wall" groups=["Killzone"]]
+position = Vector2(198, -128)
+rotation = 3.14159
+
+[node name="TileBrown04" type="Sprite2D" parent="Wall/Top Rock"]
+texture = ExtResource("4_brw43")
+
+[node name="TileBrown09" type="Sprite2D" parent="Wall/Top Rock"]
+position = Vector2(0, 64)
+texture = ExtResource("5_spau0")
+
+[node name="TileBrown27" type="Sprite2D" parent="Wall/Top Rock"]
+position = Vector2(0, 128)
+texture = ExtResource("6_fqr0k")
+
+[node name="TileBrown28" type="Sprite2D" parent="Wall/Top Rock"]
+position = Vector2(0, 192)
+texture = ExtResource("6_fqr0k")
+
+[node name="TileBrown29" type="Sprite2D" parent="Wall/Top Rock"]
+position = Vector2(-0.000872103, 344)
+scale = Vector2(1, 3.84375)
+texture = ExtResource("6_fqr0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Top Rock"]
+position = Vector2(-0.000324547, 128)
+shape = SubResource("RectangleShape2D_oxblb")
+
+[node name="ScoreZone" type="Area2D" parent="Wall" groups=["ScoreZone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/ScoreZone" groups=["ScoreZone"]]
+position = Vector2(225, 0)
+shape = SubResource("RectangleShape2D_llivm")

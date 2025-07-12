@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://cg7g8mte63lj5"]
+
+[ext_resource type="Script" uid="uid://dlxo0tstiq6po" path="res://landing_page.gd" id="1_5gnro"]
+[ext_resource type="Script" uid="uid://qtayswper1fu" path="res://background.gd" id="1_wv4e6"]
+[ext_resource type="Texture2D" uid="uid://bf8o4ccwuc1db" path="res://assets/Background/bg_layer1.png" id="2_5gnro"]
+[ext_resource type="Texture2D" uid="uid://dfl1yyk7bsbyp" path="res://assets/Background/bg_layer2.png" id="3_jg1ym"]
+[ext_resource type="Texture2D" uid="uid://byad4jy6w4b23" path="res://assets/Background/bg_layer3.png" id="4_eoncu"]
+[ext_resource type="Texture2D" uid="uid://dy0763exvsicm" path="res://assets/Background/bg_layer4.png" id="5_x6opa"]
+[ext_resource type="FontFile" uid="uid://cwsfa5wh1y81i" path="res://assets/Kenney Bold.ttf" id="7_eoncu"]
+[ext_resource type="AudioStream" uid="uid://cxb81idnxfax5" path="res://Audio/8. Summertide Fun.wav" id="7_jg1ym"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg1ym"]
+bg_color = Color(0.302664, 0.739256, 0.518661, 1)
+border_width_bottom = 4
+border_color = Color(0.187353, 0.490986, 0.33822, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(2.15, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoncu"]
+bg_color = Color(0.286275, 0.705882, 0.494118, 1)
+border_width_top = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(2.15, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6opa"]
+bg_color = Color(0.286275, 0.705882, 0.494118, 1)
+border_width_bottom = 4
+border_color = Color(0.187353, 0.490986, 0.33822, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(2.15, 3.405)
+
+[node name="LandingPage" type="Node2D"]
+script = ExtResource("1_5gnro")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(512, 256)
+scale = Vector2(0.52, 0.52)
+script = ExtResource("1_wv4e6")
+metadata/_edit_lock_ = true
+
+[node name="Layer1" type="Node2D" parent="Background"]
+
+[node name="BgLayer1" type="Sprite2D" parent="Background/Layer1"]
+texture = ExtResource("2_5gnro")
+
+[node name="BgLayer2" type="Sprite2D" parent="Background/Layer1"]
+position = Vector2(2048, 0)
+texture = ExtResource("2_5gnro")
+
+[node name="Layer2" type="Node2D" parent="Background"]
+
+[node name="BgLayer2" type="Sprite2D" parent="Background/Layer2"]
+texture = ExtResource("3_jg1ym")
+
+[node name="BgLayer3" type="Sprite2D" parent="Background/Layer2"]
+position = Vector2(2048, 0)
+texture = ExtResource("3_jg1ym")
+
+[node name="Layer3" type="Node2D" parent="Background"]
+
+[node name="BgLayer3" type="Sprite2D" parent="Background/Layer3"]
+texture = ExtResource("4_eoncu")
+
+[node name="BgLayer4" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(2048, 0)
+texture = ExtResource("4_eoncu")
+
+[node name="Layer4" type="Node2D" parent="Background"]
+
+[node name="BgLayer4" type="Sprite2D" parent="Background/Layer4"]
+texture = ExtResource("5_x6opa")
+
+[node name="BgLayer5" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(2048, 0)
+texture = ExtResource("5_x6opa")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 376.0
+offset_top = 212.0
+offset_right = 632.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("7_eoncu")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/hover = SubResource("StyleBoxFlat_jg1ym")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eoncu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x6opa")
+text = " start"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jg1ym")
+volume_db = -6.0
+autoplay = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
