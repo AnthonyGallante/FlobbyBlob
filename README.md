@@ -1,7 +1,7 @@
 # FlobbyBlob: A Simple Flappy Bird Clone
 
-I made this in a few days after work just to get re-aquainted with Godot.
-Please ignore the horrid file structure. This was more or less a speedrun.
+I made this in a few days after work just to get re-aquainted with Godot.<br>
+<b>Please ignore the horrid file structure. This was more or less a speedrun.</b>
 
 https://github.com/user-attachments/assets/fb126e84-11cd-424d-8047-52a094b9fa40
 
